@@ -1,0 +1,58 @@
+---
+import { Icon } from "astro-icon/components";
+
+const socials = [
+  { label: "Facebook", icon: "simple-icons:facebook", href: "https://www.facebook.com/profile.php?id=100085837425073" },
+  { label: "Instagram", icon: "simple-icons:instagram", href: "https://www.instagram.com/fortin_projet/" },
+  { label: "YouTube", icon: "simple-icons:youtube", href: "https://www.youtube.com/@fortin_projet" },
+  { label: "TikTok", icon: "simple-icons:tiktok", href: "#" },
+  { label: "LinkedIn", icon: "simple-icons:linkedin", href: "https://www.linkedin.com/in/fortin-projet-572762296" },
+  { label: "Vimeo", icon: "simple-icons:vimeo", href: "#" },
+];
+
+const contacts = [
+  { name: "Matthias Germain", email: "germain-mat25@orange.fr", phone: "06 02 32 17 20" },
+  { name: "Thibaut Garcia", email: "thibautgarcia25300@gmail.com", phone: "06 37 69 17 68" },
+];
+---
+
+<footer class="px-8 py-10 md:px-16 md:py-12">
+  <div
+    class="mx-auto grid max-w-7xl gap-8 md:grid-cols-3 md:items-start md:gap-12"
+  >
+    <div class="space-y-4">
+      <p class="font-display text-xl font-bold tracking-wider">FORTIN</p>
+      <ul class="flex flex-wrap gap-3 text-sm">
+        {
+          socials.map((s) => (
+            <li>
+              <a
+                href={s.href}
+                aria-label={s.label}
+                class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-fortin-green-dark text-fortin-beige transition-opacity hover:opacity-80"
+              >
+                <Icon name={s.icon} class="h-4 w-4" />
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    {
+      contacts.map((c) => (
+        <div class="space-y-1 text-sm">
+          <a
+            href={`mailto:${c.email}`}
+            class="block underline underline-offset-2 transition-opacity hover:opacity-70"
+          >
+            {c.email}
+          </a>
+          <p>
+            {c.name} : {c.phone}
+          </p>
+        </div>
+      ))
+    }
+  </div>
+</footer>

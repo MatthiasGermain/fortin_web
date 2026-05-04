@@ -1,0 +1,133 @@
+---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+
+const ordiModules = import.meta.glob<{ default: ImageMetadata }>(
+  "../assets/carrousel/ORDI/*.png",
+  { eager: true },
+);
+const portableuModules = import.meta.glob<{ default: ImageMetadata }>(
+  "../assets/carrousel/PORTABLEU/*.png",
+  { eager: true },
+);
+
+const naturalSort = (a: string, b: string) =>
+  a.localeCompare(b, undefined, { numeric: true });
+
+const ordiSlides = Object.entries(ordiModules)
+  .sort(([a], [b]) => naturalSort(a, b))
+  .map(([, mod]) => mod.default);
+
+const portableuSlides = Object.entries(portableuModules)
+  .sort(([a], [b]) => naturalSort(a, b))
+  .map(([, mod]) => mod.default);
+---
+
+<section
+  class="carousel relative bg-fortin-green-dark"
+  aria-roledescription="carousel"
+  aria-label="Témoignages des participants"
+>
+  <div
+    class="carousel-track hidden snap-x snap-mandatory overflow-x-auto md:flex"
+  >
+    {
+      ordiSlides.map((img, i) => (
+        <div class="carousel-slide w-full shrink-0 snap-center">
+          <Image
+            src={img}
+            alt={`Témoignage ${i + 1}`}
+            class="h-auto w-full"
+            loading={i === 0 ? "eager" : "lazy"}
+          />
+        </div>
+      ))
+    }
+  </div>
+
+  <div
+    class="carousel-track flex snap-x snap-mandatory overflow-x-auto md:hidden"
+  >
+    {
+      portableuSlides.map((img, i) => (
+        <div class="carousel-slide w-full shrink-0 snap-center">
+          <Image
+            src={img}
+            alt={`Témoignage ${i + 1}`}
+            class="h-auto w-full"
+            loading={i === 0 ? "eager" : "lazy"}
+          />
+        </div>
+      ))
+    }
+  </div>
+
+  <button
+    type="button"
+    class="carousel-prev absolute top-1/2 left-2 -translate-y-1/2 inline-flex h-10 w-10 items-center justify-center rounded-full bg-fortin-beige/80 text-fortin-green-dark transition-opacity hover:opacity-100 opacity-70 md:left-4 md:h-12 md:w-12"
+    aria-label="Témoignage précédent"
+  >
+    <svg
+      class="h-5 w-5"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+    >
+      <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+    </svg>
+  </button>
+
+  <button
+    type="button"
+    class="carousel-next absolute top-1/2 right-2 -translate-y-1/2 inline-flex h-10 w-10 items-center justify-center rounded-full bg-fortin-beige/80 text-fortin-green-dark transition-opacity hover:opacity-100 opacity-70 md:right-4 md:h-12 md:w-12"
+    aria-label="Témoignage suivant"
+  >
+    <svg
+      class="h-5 w-5"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+    >
+      <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+    </svg>
+  </button>
+</section>
+
+<style>
+  .carousel-track {
+    scrollbar-width: none;
+  }
+  .carousel-track::-webkit-scrollbar {
+    display: none;
+  }
+</style>
+
+<script>
+  const carousels = document.querySelectorAll<HTMLElement>(".carousel");
+
+  carousels.forEach((carousel) => {
+    const prev = carousel.querySelector<HTMLButtonElement>(".carousel-prev");
+    const next = carousel.querySelector<HTMLButtonElement>(".carousel-next");
+
+    const visibleTrack = () =>
+      Array.from(
+        carousel.querySelectorAll<HTMLElement>(".carousel-track"),
+      ).find((el) => el.offsetParent !== null);
+
+    prev?.addEventListener("click", () => {
+      const track = visibleTrack();
+      if (!track) return;
+      track.scrollBy({ left: -track.clientWidth, behavior: "smooth" });
+    });
+
+    next?.addEventListener("click", () => {
+      const track = visibleTrack();
+      if (!track) return;
+      track.scrollBy({ left: track.clientWidth, behavior: "smooth" });
+    });
+  });
+</script>

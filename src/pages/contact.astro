@@ -1,0 +1,84 @@
+---
+import Base from "../layouts/Base.astro";
+import { Icon } from "astro-icon/components";
+
+const contacts = [
+  {
+    name: "Matthias Germain",
+    email: "germain-mat25@orange.fr",
+    phone: "06 02 32 17 20",
+  },
+  {
+    name: "Thibaut Garcia",
+    email: "thibautgarcia25300@gmail.com",
+    phone: "06 37 69 17 68",
+  },
+];
+
+const socials = [
+  { label: "Facebook", icon: "simple-icons:facebook", href: "https://www.facebook.com/profile.php?id=100085837425073" },
+  { label: "Instagram", icon: "simple-icons:instagram", href: "https://www.instagram.com/fortin_projet/" },
+  { label: "YouTube", icon: "simple-icons:youtube", href: "https://www.youtube.com/@fortin_projet" },
+  { label: "TikTok", icon: "simple-icons:tiktok", href: "#" },
+  { label: "LinkedIn", icon: "simple-icons:linkedin", href: "https://www.linkedin.com/in/fortin-projet-572762296" },
+  { label: "Vimeo", icon: "simple-icons:vimeo", href: "#" },
+];
+---
+
+<Base
+  title="Nous contacter"
+  description="Contactez l'association Fortin : Gabin Parisot et Thibaut Garcia, co-fondateurs. Adresses email, téléphones et réseaux sociaux."
+  showFooter={false}
+>
+  <section class="px-8 py-16 md:px-16 md:py-24">
+    <div class="mx-auto grid max-w-7xl items-center gap-12 md:grid-cols-2 md:gap-16">
+      <div>
+        <h1 class="font-display text-5xl font-bold md:text-6xl">
+          Contactez-nous
+        </h1>
+
+        <div class="mt-12 space-y-8">
+          {
+            contacts.map((c) => (
+              <div class="space-y-1">
+                <a
+                  href={`mailto:${c.email}`}
+                  class="block font-medium underline underline-offset-2 transition-opacity hover:opacity-70"
+                >
+                  {c.email}
+                </a>
+                <p>
+                  {c.name} : {c.phone}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+
+        <ul class="mt-12 flex flex-wrap gap-3">
+          {
+            socials.map((s) => (
+              <li>
+                <a
+                  href={s.href}
+                  aria-label={s.label}
+                  class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-fortin-green-dark text-fortin-beige transition-opacity hover:opacity-80"
+                >
+                  <Icon name={s.icon} class="h-5 w-5" />
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div class="flex justify-center md:justify-end">
+        <img
+          src="/logo-fortin.png"
+          alt="Logo de l'association Fortin — fort Malher"
+          class="w-full max-w-md"
+        />
+      </div>
+    </div>
+  </section>
+</Base>

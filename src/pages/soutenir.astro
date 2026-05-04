@@ -1,0 +1,76 @@
+---
+import Base from "../layouts/Base.astro";
+
+const partners = [
+  { name: "Tout simplement" },
+  { name: "Lombardot" },
+  { name: "De Giorgi" },
+  { name: "Cinéma Olympia Pontarlier" },
+  { name: "Bulthaup Pontarlier" },
+  { name: "L'Entrepôt du bricolage" },
+  { name: "Sportmidable" },
+  { name: "L'Est Républicain" },
+  { name: "MJC des Capucins" },
+  { name: "Institut Catholique de Rennes" },
+  { name: "Image'Est" },
+  { name: "Ville de Pontarlier" },
+  { name: "Le Souvenir Français" },
+  { name: "Parloncap" },
+  { name: "Crédit Agricole" },
+  { name: "La Presse Pontissalienne" },
+  { name: "SwissLife" },
+  { name: "Gentlemen's Barber Shop" },
+  { name: "Commune de Houtaud" },
+];
+
+const donationUrl = "#";
+---
+
+<Base
+  title="Nous soutenir"
+  description="Soutenez l'association Fortin par un don ou un partenariat. Découvrez nos partenaires actuels qui nous accompagnent dans le devoir de mémoire."
+>
+  <section class="bg-fortin-green-dark px-8 py-12 text-fortin-beige md:px-16 md:py-16">
+    <div class="mx-auto flex max-w-7xl flex-col items-start gap-6 md:flex-row md:items-center md:justify-between md:gap-12">
+      <div>
+        <h1 class="font-display text-4xl font-bold md:text-5xl">
+          Soutenir Fortin
+        </h1>
+        <p class="mt-4 max-w-2xl text-base md:text-lg">
+          Aidez-nous à faire vivre l'association. En faisant une donation, vous
+          nous aidez à entretenir l'histoire qui vous passionne.
+        </p>
+      </div>
+      <a
+        href={donationUrl}
+        class="inline-flex shrink-0 items-center justify-center rounded-sm bg-fortin-beige px-6 py-3 font-medium text-fortin-green-dark transition-opacity hover:opacity-80"
+      >
+        Faire un don
+      </a>
+    </div>
+  </section>
+
+  <section class="px-8 py-16 md:px-16 md:py-20">
+    <div class="mx-auto max-w-7xl">
+      <div class="text-center">
+        <p class="font-display text-2xl md:text-3xl">
+          Ils nous soutiennent déjà&nbsp;!
+        </p>
+        <p class="mt-2 font-display text-2xl md:text-3xl">Rejoignez-les&nbsp;!</p>
+        <hr class="mx-auto mt-8 max-w-3xl border-fortin-green-dark/30" />
+      </div>
+
+      <div class="mt-12 grid grid-cols-2 gap-6 md:grid-cols-4 md:gap-10 lg:grid-cols-5">
+        {
+          partners.map((partner) => (
+            <div class="flex aspect-square items-center justify-center bg-fortin-green-dark/5 p-4 text-center">
+              <p class="text-xs italic text-fortin-green-dark/60 md:text-sm">
+                {partner.name}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</Base>
