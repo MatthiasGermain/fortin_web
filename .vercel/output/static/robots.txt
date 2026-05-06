@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://fortin-projet.fr/sitemap-index.xml
