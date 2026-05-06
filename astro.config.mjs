@@ -9,7 +9,7 @@ import vercel from '@astrojs/vercel';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://fortin-projet.fr',
-  output: 'static',
+  output: 'server',
   adapter: vercel(),
   integrations: [icon(), sitemap()],
   vite: {
