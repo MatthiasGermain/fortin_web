@@ -6,6 +6,10 @@ import TestimonialCarousel from "../components/TestimonialCarousel.astro";
 import { Image } from "astro:assets";
 import type { ImageMetadata } from "astro";
 import afficheMemoire from "../assets/images/Affiche Mémoire d'appelé.jpg";
+import couvertureCarnet from "../assets/images/couverture_livret.png";
+import carnetIllu1 from "../assets/images/illu1.png";
+import carnetIllu2 from "../assets/images/illu2.png";
+import carnetIllu3 from "../assets/images/illu3.png";
 
 interface Project {
   title: string;
@@ -18,33 +22,75 @@ interface Project {
   hasPoster?: boolean;
   posterImage?: ImageMetadata;
   posterAlt?: string;
+  gallery?: { src: ImageMetadata; alt: string }[];
 }
 
 const projects: Project[] = [
   {
     title: "Un Portrait du Temps",
-    subtitle: "01 — Nos Grands-parents",
+    subtitle: "Une série documentaire en 8 épisodes · 32 témoignages",
     description:
-      "Un Portrait du Temps est une série documentaire mettant en lumière les visions à la fois semblables et différentes des hommes et des femmes de l'ancienne et de la nouvelle générations. Au travers de 8 épisodes thématiques (Nos Grands-parents, l'Éducation, le Travail, les Loisirs, la Santé, la Guerre, La Société, Nos Petits-enfants), cette série explore les temps qui figurent la vie de chaque générations.",
+      "Un Portrait du Temps est une série documentaire mettant en lumière les visions à la fois semblables et différentes des hommes et des femmes de l'ancienne et de la nouvelle générations. Au travers de 8 épisodes thématiques (Nos Grands-parents, l'Éducation, le Travail, les Loisirs, la Santé, la Guerre, La Société, Nos Petits-enfants), cette série explore les temps qui figurent la vie de chaque génération. Le tournage s'est achevé le 23 février 2025 ; la postproduction est en cours, pour une finalisation prévue fin 2025/début 2026.",
     credits: {
       "Écrit, monté et réalisé par": "Thibaut Garcia",
       "Produit par": "Gabin Parisot",
-      "Musique composée par": "Théo Henrion",
-      "Dessins d'animations de": "Joy Chaleroux",
-      "Voix off interprétée par": "Manuella Lebourèche",
       "Entretiens dirigés par": "Marie Ferreux",
+      "Voix off interprétée par": "Manuella Le Bruchec",
+      "Musique composée par": "Théo Henrion",
+      "Dessins d'animation réalisés par":
+        "Joy Chaleroux, Yukiko Pinard & Diana Ionasku",
       "Prise de son par":
         "Gwenvaël Le Faucheur, Théo Henrion & Matthias Germain",
       "Archivage par": "Matthias Germain & Thibaut Garcia",
+      "Making-of réalisé par": "Ilhan Köken",
+      "Assistanat de production":
+        "Édouard Lemoine, Charlotte Chauvel, Nina Cretet & Thomas Germain",
+      "Avec le soutien de": "Communes de Houtaud et Pontarlier",
+      "En collaboration avec": "Image'Est",
     },
     technical: {
       Genre: "Série Documentaire",
       Langue: "Français",
       Durée: "8 épisodes entre 20 et 25 minutes",
       Couleurs: "Couleurs & noir et blanc",
+      Témoignages: "32 témoins",
     },
-    productionDate: "En cours de production",
+    productionDate: "Postproduction · Finalisation fin 2025/début 2026",
     videoEmbed: { provider: "vimeo", id: "882193861" },
+  },
+  {
+    title: "Carnet d'une libération",
+    subtitle: "Recueil de témoignages · Libération de Pontarlier",
+    description:
+      "Court livret de témoignages dont l'objectif est de rendre l'histoire de la libération de Pontarlier accessible à toutes les tranches d'âge. L'ouvrage repose sur des entretiens menés avec des anciens ayant vécu cet événement durant leur jeunesse : où étaient-ils, que faisaient-ils, avec qui, quelles histoires ont-ils transmises ? Pensé à la fois comme un objet mémoriel et un objet divertissant, le Carnet est le premier projet papier abouti par l'association ; il ouvre une nouvelle catégorie de production aux côtés du film documentaire.",
+    credits: {
+      "Coordination éditoriale": "Thibaut Garcia, Joy Chaleroux",
+      "Recueil des témoignages":
+        "L'association Fortin et la Ville de Pontarlier",
+      Témoins:
+        "Denise Grenon, Madeleine Maugain, Guy Cuby, Suzanne Meunier, Aïssa Youness, Thérèse Jeandroz, et une jeune fille de 24 ans",
+      Rédaction: "Marie Ferreux",
+      Illustrations: "Louise Reutenauer",
+      "Mise en page": "Héléna Della Posta",
+      "Avec le soutien de":
+        "La Ville de Pontarlier et la commune de Houtaud",
+      Remerciements:
+        "Marie Borne (directrice des Archives municipales de Pontarlier) et Julie Jacquet (chargée de communication numérique de la Ville de Pontarlier)",
+    },
+    technical: {
+      Format: "Livret papier",
+      Langue: "Français",
+      Lancement: "9 mai 2026 · Médiathèque de Pontarlier",
+    },
+    productionDate: "Août 2025",
+    hasPoster: true,
+    posterImage: couvertureCarnet,
+    posterAlt: "Couverture du Carnet d'une libération",
+    gallery: [
+      { src: carnetIllu1, alt: "Illustration du Carnet d'une libération" },
+      { src: carnetIllu2, alt: "Illustration du Carnet d'une libération" },
+      { src: carnetIllu3, alt: "Illustration du Carnet d'une libération" },
+    ],
   },
   {
     title: "Tranchées du ciel",
@@ -57,8 +103,8 @@ const projects: Project[] = [
       "Voix off interprétée par":
         "Bernard Kordylas, Xavier Garcia & Anthony Authier",
       "Interviews de": "Nicolas Barrot, Nicolas Czubak & Olivier Girard",
-      "Prise de son par": "Joy Chaleroux & Ilhan Koken",
-      "Colorisation graphique de": "Joy Chaleroux & Ilhan Koken",
+      "Prise de son par": "Joy Chaleroux & Ilhan Köken",
+      "Colorisation graphique de": "Joy Chaleroux & Ilhan Köken",
       "Archivage par": "Matthias Germain",
     },
     technical: {
@@ -82,7 +128,7 @@ const projects: Project[] = [
       "Témoignage de": "Gabriel Ferreux",
       "Voix off de": "Gabin Parisot et Thibaut Garcia",
       "Musique de": "Gilles Le Faucheur",
-      "Animation de": "Ilhan Koken",
+      "Animation de": "Ilhan Köken",
       "Conseil historique": "Anthony Authier",
       "Ingénieur du son": "Gwenvaël Le Faucheur",
     },
@@ -103,7 +149,7 @@ const projects: Project[] = [
 
 <Base
   title="Nos réalisations"
-  description="Découvrez les productions audiovisuelles de Fortin : Mémoire d'appelé (guerre d'Algérie), Tranchées du ciel (Verdun), et la série Un Portrait du Temps."
+  description="Découvrez les productions de Fortin : Un Portrait du Temps (série documentaire), Tranchées du ciel (Verdun), Mémoire d'appelé (guerre d'Algérie) et Carnet d'une libération (Pontarlier)."
 >
   <header class="px-8 pt-8 md:px-16 md:pt-12">
     <div class="mx-auto max-w-7xl">
@@ -235,6 +281,27 @@ const projects: Project[] = [
                   allowfullscreen
                 />
               )}
+            </div>
+          )}
+
+          {project.gallery && project.gallery.length > 0 && (
+            <div class="mt-10 md:mt-12">
+              <p class="text-sm font-medium tracking-widest uppercase opacity-70">
+                Illustrations
+              </p>
+
+              <div class="mx-auto mt-4 grid items-center gap-4 md:max-w-4xl md:grid-cols-[2fr_1fr_2fr] md:gap-6">
+                {project.gallery.map((img) => (
+                  <Image
+                    src={img.src}
+                    alt={img.alt}
+                    class="w-full"
+                    width={600}
+                    height={600}
+                    loading="lazy"
+                  />
+                ))}
+              </div>
             </div>
           )}
 

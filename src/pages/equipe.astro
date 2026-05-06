@@ -10,6 +10,9 @@ import theoPhoto from "../assets/team/theo.jpg";
 import edouardPhoto from "../assets/team/edouard.jpg";
 import thomasPhoto from "../assets/team/thomas.jpg";
 import charlottePhoto from "../assets/team/charlotte.jpeg";
+import joyPhoto from "../assets/team/joy.jpg";
+import louisePhoto from "../assets/team/louise.jpeg";
+import antoinePhoto from "../assets/team/antoine.jpg";
 
 interface Member {
   name: string;
@@ -21,12 +24,12 @@ interface Member {
 const members: Member[] = [
   {
     name: "Thibaut Garcia",
-    role: "Réalisateur",
+    role: "Président · Réalisateur",
     bio: "Crée l'association Fortin avec Gabin et d'autres de mes amis c'est avéré comme une évidence à la suite de la production du documentaire Mémoire d'appelé. Chacun de nos projet sont une occasions pour moi, comme pour l'ensemble de l'équipe, de ce retrouver et de passer du temps ensemble pour travailler sur la Mémoire. Les productions que je réalise dans le cadre de Fortin sont l'occasion pour moi de mettre mes compétence au service d'un projet commun portant sur une thématique mémorielle qui m'est très chère.",
   },
   {
     name: "Gabin Parisot",
-    role: "Producteur",
+    role: "Membre d'honneur, à titre posthume",
     bio: "FORTIN est beaucoup de choses. Pour moi, FORTIN est un devoir de mémoire, d'histoire, même un devoir citoyen, qui se manifeste par une création audio-visuelle qui elle même met en valeur le lien intergénérationnel. FORTIN est par dessus tout, un projet qui permet de créer du lien et de faire de nouvelles connexions entre les générations, les opinions, les expériences. FORTIN est pour nous, l'occasion de vivre une expérience forte et enrichissante entre amis et coéquipiers, issus de différents horizons, de différents cursus scolaires, aux compétences et aux connaissances multiples. Bref, FORTIN est beaucoup de choses.",
     photo: gabinPhoto,
   },
@@ -38,17 +41,18 @@ const members: Member[] = [
   },
   {
     name: "Gwenvaël Lefaucheur",
-    role: "Ingénieur son",
+    role: "Trésorier · Ingénieur son",
     bio: "Ce qui me motive à participer au projet, c'est l'expérience. L'expérience de découvrir encore plus le milieu audiovisuel et l'envie de développer mes compétences en tant qu'ingénieur son, entouré d'amis qui apportent chacun quelque chose de spécial au projet en général. Surtout, c'est une passion que j'ai pour l'histoire et pour les anecdotes de l'ancienne génération, et qui, ici, prend forme sous un angle différent des livres et des enseignements, un angle que j'apprécie particulièrement.",
   },
   {
     name: "Joy Chaleroux",
-    role: "Animatrice 2D et 3D",
+    role: "Secrétaire générale · Animatrice 2D et 3D",
     bio: "Depuis très jeune j'écoute avec la plus grande attention les histoires du temps d'avant de ma grand-mère. Malgré l'écart générationnel, j'ai toujours l'impression qu'elle me rappelle « la vraie vie ». Le projet m'a tout de suite conquise car étant attaché au devoir de mémoire et avec l'ambition de me dépasser dans mon travail, c'était pour moi une évidence. Je vois également dans ce projet l'opportunité d'apprendre de nouvelles choses et de travailler en équipe, qui plus est avec des amis.",
+    photo: joyPhoto,
   },
   {
     name: "Matthias Germain",
-    role: "Concepteur web & Ingénieur son",
+    role: "Vice-président · Concepteur web & Ingénieur son",
     bio: "Intéressé et concerné par le devoir de mémoire, Fortin est un projet avec un sens profond, qui permet à une équipe de faire vivre ses compétences, aboutissant à restituer la mémoire de nos anciens et la partager aux générations présentes et futures.",
     photo: matthiasPhoto,
   },
@@ -65,7 +69,7 @@ const members: Member[] = [
   },
   {
     name: "Thomas Germain",
-    role: "Régisseur",
+    role: "Secrétaire adjoint · Régisseur",
     bio: "Thibaut et Gabin sont de bon amis, c'est naturellement que je me suis intéressé à leur projet, et quand j'ai vu leur envie et la qualité des projets qu'ils ont déjà réalisé comme « Mémoire d'appelé », qui en plus traite d'un sujet qui m'intéresse particulièrement, j'ai forcément voulu aider avec ce que je pouvais apporter pour les projets à venir, et c'est avec plaisir que je continue.",
     photo: thomasPhoto,
   },
@@ -80,18 +84,18 @@ const members: Member[] = [
     bio: "Ce projet traduit une véritable envie d'apprendre, de comprendre et de restituer un morceau de notre culture et de notre histoire. C'est pourquoi il m'était important d'y participer, même de loin. La dimension de partage, de transmission des valeurs le rend d'autant plus intéressant.",
   },
   {
-    name: "Ilhan Koken",
+    name: "Ilhan Köken",
     role: "Réalisateur making off",
     bio: "FORTIN, c'est le plaisir de travailler avec des amis, pour un devoir de mémoire important et nécessaire, et l'objectif de se professionnaliser plus encore dans l'audio visuel.",
   },
   {
-    name: "Charlotte",
+    name: "Charlotte Chauvel",
     role: "Responsable interview",
     bio: "Je me rappelle les cours d'Histoire à rallonge au Lycée, les faits à apprendre par cœur face à notre feuille. Le projet Fortin, c'est mettre tout cela en images, documenter concrètement tous ces concepts… mais aussi pouvoir apprendre de ces personnes qui font l'histoire à leur échelle, peu importe leur âge ! En tant qu'étudiante en journalisme, je ne pouvais que rejoindre ce beau projet, enrichissant techniquement, comme intellectuellement. J'espère que vous en apprendrez beaucoup grâce à nous !",
     photo: charlottePhoto,
   },
   {
-    name: "Manuella",
+    name: "Manuella Le Bruchec",
     role: "Assistante Production",
     bio: "Le talent au service de l'histoire ! Ce serait selon moi un bon résumé de Fortin, une association où chacun joue un rôle important et peut exprimer ses savoir-faire. Je vois dans ce projet l'occasion d'être utile et de prouver que « jeunesse » n'est pas synonyme de désintérêt pour la culture et notre histoire. Nous sommes le résultat de celle de nos parents, grands-parents et arrières grand-parents, je suis alors heureuse que des personnes, de mon âge qui plus est, m'offrent la possibilité de participer à la mémoire !",
   },
@@ -119,6 +123,7 @@ const members: Member[] = [
     name: "Louise Reutenauer",
     role: "Design social",
     bio: "La Franche-Comté et moi, on s'est rencontré il n'y a pas si longtemps que ça et l'association Fortin est très vite devenue indissociable de cette région que j'ai découverte. Que cela soit pour les valeurs, les amis, les projets, cet engagement est riche en expériences. Étudiante en design social, Fortin me permet d'approfondir des éléments centraux pour moi : les enjeux de transmission et l'illustration.",
+    photo: louisePhoto,
   },
   {
     name: "Jeanne Bourdenet",
@@ -126,9 +131,15 @@ const members: Member[] = [
     bio: "Hello, moi, c'est Jeanne, j'ai 22 ans, je viens du Haut-Doubs. Je suis actuellement infirmière dans un centre de rééducation, et si je suis bénévole chez Fortin, c'est parce que leur histoire et leur mission m'ont touchée. C'est aussi un plaisir de retrouver toute l'équipe à chaque fois. C'est un moyen de se réunir tout en échangeant, de manière formelle ou informelle, avec des personnes qui nous apprennent énormément sur la vie. Je soutiens pleinement leurs convictions et leur engagement dans ce projet.",
   },
   {
-    name: "Antoine Vermont Desroche",
+    name: "Antoine Vermot-Desroches",
     role: "Bénévole",
     bio: "Opérateur affinage en fromagerie, j'ai rejoint l'association pour donner un coup de main quand il y a besoin.",
+    photo: antoinePhoto,
+  },
+  {
+    name: "Angelina Voynnet",
+    role: "Membre",
+    bio: "[Bio à compléter]",
   },
 ];
 ---

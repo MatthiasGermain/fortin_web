@@ -5,15 +5,21 @@ import Base from "../layouts/Base.astro";
 import { Image } from "astro:assets";
 import type { ImageMetadata } from "astro";
 import logoEstRepublicain from "../assets/sponsort/est_republicain.png";
-import logoImageEst from "../assets/sponsort/imagest.jpg";
+import logoImageEst from "../assets/sponsort/imagest.png";
 import logoPressePonti from "../assets/sponsort/presse_ponti.png";
 import logoSouvenirFr from "../assets/sponsort/souvenir_fr.png";
-import logoToutSimplement from "../assets/sponsort/logo_toutsimplement.png";
+import logoToutSimplement from "../assets/sponsort/tout_simplement.png";
 import logoCinemaOlympia from "../assets/sponsort/cinema_olympia_pontarlier.png";
-import logoDeGiorgi from "../assets/sponsort/de_giorgi.png";
+import logoDeGiorgi from "../assets/sponsort/degiorgi.png";
 import logoIcr from "../assets/sponsort/icr.png";
 import logoPontarlier from "../assets/sponsort/pontarlier.png";
-import logoMjcCapucins from "../assets/sponsort/2957-3585770933.jpg";
+import logoMjcCapucins from "../assets/sponsort/mjc_capucins.png";
+import logoBarbershop from "../assets/sponsort/barbershop.png";
+import logoBulthaup from "../assets/sponsort/bulthaup.png";
+import logoCreditAgricole from "../assets/sponsort/credit_agricole.png";
+import logoParlonscap from "../assets/sponsort/parlonscap.png";
+import logoSwisslife from "../assets/sponsort/swisslife.png";
+import logoHoutaud from "../assets/sponsort/houtaud.jpg";
 
 interface Partner {
   name: string;
@@ -44,7 +50,11 @@ const partners: Partner[] = [
     url: "https://cinema-pontarlier.fr/",
     logo: logoCinemaOlympia,
   },
-  { name: "Bulthaup Pontarlier", url: "https://pontarlier.bulthaup.com/fr/" },
+  {
+    name: "Bulthaup Pontarlier",
+    url: "https://pontarlier.bulthaup.com/fr/",
+    logo: logoBulthaup,
+  },
   {
     name: "L'Entrepôt du bricolage",
     url: "https://www.entrepot-du-bricolage.fr/mon-magasin/pontarlier",
@@ -80,16 +90,32 @@ const partners: Partner[] = [
     url: "https://le-souvenir-francais.fr/",
     logo: logoSouvenirFr,
   },
-  { name: "Parloncap" },
-  { name: "Crédit Agricole", url: "https://www.credit-agricole.fr/ca-franchecomte/" },
+  { name: "Parloncap", logo: logoParlonscap },
+  {
+    name: "Crédit Agricole",
+    url: "https://www.credit-agricole.fr/ca-franchecomte/",
+    logo: logoCreditAgricole,
+  },
   {
     name: "La Presse Pontissalienne",
     url: "https://www.presse-pontissalienne.fr/",
     logo: logoPressePonti,
   },
-  { name: "SwissLife", url: "https://www.swisslife.fr/" },
-  { name: "Gentlemen's Barber Shop", url: "https://www.gentlemens-barbershop.com/" },
-  { name: "Commune de Houtaud", url: "https://houtaud.fr/" },
+  {
+    name: "SwissLife",
+    url: "https://www.swisslife.fr/",
+    logo: logoSwisslife,
+  },
+  {
+    name: "Gentlemen's Barber Shop",
+    url: "https://www.gentlemens-barbershop.com/",
+    logo: logoBarbershop,
+  },
+  {
+    name: "Commune de Houtaud",
+    url: "https://houtaud.fr/",
+    logo: logoHoutaud,
+  },
 ];
 
 const donationUrl = "#";

@@ -61,7 +61,7 @@ export const POST: APIRoute = async ({ request, url }) => {
   }
 
   const resend = new Resend(apiKey);
-  const subject = `Nouvelle proposition Fortin${type ? ` — ${type}` : ""}`;
+  const subject = `Nouvelle proposition Fortin${type ? ` · ${type}` : ""}`;
 
   const html = `
     <h2 style="font-family:serif">Nouvelle proposition reçue via le site Fortin</h2>
