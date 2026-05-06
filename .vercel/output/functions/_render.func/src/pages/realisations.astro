@@ -1,0 +1,246 @@
+---
+import Base from "../layouts/Base.astro";
+import TestimonialCarousel from "../components/TestimonialCarousel.astro";
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+import afficheMemoire from "../assets/images/Affiche Mémoire d'appelé.jpg";
+
+interface Project {
+  title: string;
+  subtitle?: string;
+  description?: string;
+  credits: Record<string, string>;
+  technical: Record<string, string>;
+  productionDate: string;
+  videoEmbed?: { provider: "vimeo" | "youtube"; id: string };
+  hasPoster?: boolean;
+  posterImage?: ImageMetadata;
+  posterAlt?: string;
+}
+
+const projects: Project[] = [
+  {
+    title: "Un Portrait du Temps",
+    subtitle: "01 — Nos Grands-parents",
+    description:
+      "Un Portrait du Temps est une série documentaire mettant en lumière les visions à la fois semblables et différentes des hommes et des femmes de l'ancienne et de la nouvelle générations. Au travers de 8 épisodes thématiques (Nos Grands-parents, l'Éducation, le Travail, les Loisirs, la Santé, la Guerre, La Société, Nos Petits-enfants), cette série explore les temps qui figurent la vie de chaque générations.",
+    credits: {
+      "Écrit, monté et réalisé par": "Thibaut Garcia",
+      "Produit par": "Gabin Parisot",
+      "Musique composée par": "Théo Henrion",
+      "Dessins d'animations de": "Joy Chaleroux",
+      "Voix off interprétée par": "Manuella Lebourèche",
+      "Entretiens dirigés par": "Marie Ferreux",
+      "Prise de son par":
+        "Gwenvaël Le Faucheur, Théo Henrion & Matthias Germain",
+      "Archivage par": "Matthias Germain & Thibaut Garcia",
+    },
+    technical: {
+      Genre: "Série Documentaire",
+      Langue: "Français",
+      Durée: "8 épisodes entre 20 et 25 minutes",
+      Couleurs: "Couleurs & noir et blanc",
+    },
+    productionDate: "En cours de production",
+    videoEmbed: { provider: "vimeo", id: "882193861" },
+  },
+  {
+    title: "Tranchées du ciel",
+    description:
+      "Réalisé à l'occasion de l'anniversaire de l'armistice du 11 novembre 2022, Tranchées du ciel retrace l'histoire tumultueuse de la construction mémorielle de la première guerre mondiale et de la bataille de Verdun. Documents d'archives, interviews de spécialistes et images inédites des monuments et des ruines actuelles du champ de bataille de Verdun vous plongent dans cette histoire centenaire d'une Mémoire française et européenne commune.",
+    credits: {
+      "Écrit, monté et réalisé par": "Thibaut Garcia",
+      "Produit par": "Gabin Parisot & Edouard Lemoine",
+      "Musique composée par": "Théo Henrion",
+      "Voix off interprétée par":
+        "Bernard Kordylas, Xavier Garcia & Anthony Authier",
+      "Interviews de": "Nicolas Barrot, Nicolas Czubak & Olivier Girard",
+      "Prise de son par": "Joy Chaleroux & Ilhan Koken",
+      "Colorisation graphique de": "Joy Chaleroux & Ilhan Koken",
+      "Archivage par": "Matthias Germain",
+    },
+    technical: {
+      Genre: "Film Documentaire",
+      Langue: "Français",
+      Durée: "25 minutes",
+      Couleurs: "Couleurs & noir et blanc",
+    },
+    productionDate: "Novembre 2022",
+    videoEmbed: { provider: "youtube", id: "LIgkJo1u6jA" },
+    hasPoster: true,
+    posterAlt: "Affiche du film Tranchées du ciel",
+  },
+  {
+    title: "Mémoire d'appelé",
+    subtitle: "Témoignage d'un appelé du dernier conflit français",
+    description:
+      "Mémoire d'appelé retrace la guerre d'Algérie à travers le regard de ces jeunes appelés franc-comtois. Nourri de la petite histoire à la grande histoire, ce documentaire présente, 60 ans après la fin du conflit, les témoignages d'anciens combattants à son petit-fils. Présenté dans le milieu scolaire et universitaire, ce documentaire se présente comme un outil didactique abordant la guerre d'Algérie dans sa globalité et du point de vue d'un de ses combattants français.",
+    credits: {
+      "Écrit, réalisé et monté par": "Thibaut Garcia",
+      "Témoignage de": "Gabriel Ferreux",
+      "Voix off de": "Gabin Parisot et Thibaut Garcia",
+      "Musique de": "Gilles Le Faucheur",
+      "Animation de": "Ilhan Koken",
+      "Conseil historique": "Anthony Authier",
+      "Ingénieur du son": "Gwenvaël Le Faucheur",
+    },
+    technical: {
+      Genre: "Film Documentaire",
+      Langue: "Français",
+      Durée: "32 minutes",
+      Couleurs: "Couleurs & noir et blanc",
+      Sélection: "Lumières d'Afrique 2021",
+    },
+    productionDate: "Juillet 2021",
+    hasPoster: true,
+    posterImage: afficheMemoire,
+    posterAlt: "Affiche du film Mémoire d'appelé",
+  },
+];
+---
+
+<Base
+  title="Nos réalisations"
+  description="Découvrez les productions audiovisuelles de Fortin : Mémoire d'appelé (guerre d'Algérie), Tranchées du ciel (Verdun), et la série Un Portrait du Temps."
+>
+  <header class="px-8 pt-8 md:px-16 md:pt-12">
+    <div class="mx-auto max-w-7xl">
+      <h1 class="font-display text-4xl font-bold md:text-5xl">
+        Nos Réalisations
+      </h1>
+      <hr class="mt-4 border-fortin-green-dark/30" />
+      <p class="mx-auto mt-8 max-w-3xl text-center text-base md:text-lg">
+        Les réalisations audiovisuelles de Fortin témoignent d'une passion
+        partagée pour l'histoire et la mémoire, portée collectivement par chaque
+        membre de l'association.
+      </p>
+    </div>
+  </header>
+
+  <div class="mt-10 md:mt-12">
+    <TestimonialCarousel />
+  </div>
+
+  <div class="space-y-20 px-8 py-16 md:space-y-28 md:px-16 md:py-20">
+    {
+      projects.map((project, idx) => (
+        <article class="mx-auto max-w-7xl">
+          <div
+            class:list={[
+              "grid gap-10 md:gap-12",
+              project.hasPoster && "md:grid-cols-2",
+            ]}
+          >
+            {project.hasPoster && (
+              <div>
+                {project.posterImage ? (
+                  <Image
+                    src={project.posterImage}
+                    alt={project.posterAlt ?? `Affiche de ${project.title}`}
+                    class="aspect-2/3 w-full object-cover"
+                    width={800}
+                    height={1200}
+                    loading="lazy"
+                  />
+                ) : (
+                  <div
+                    class="aspect-2/3 w-full bg-fortin-green-dark"
+                    aria-label={project.posterAlt}
+                  >
+                    <div class="flex h-full items-center justify-center p-8 text-center text-fortin-beige">
+                      <div>
+                        <p class="font-display text-2xl font-bold">
+                          {project.title}
+                        </p>
+                        <p class="mt-4 text-sm opacity-70">[Affiche à venir]</p>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+            )}
+
+            <div>
+              <h2 class="font-display text-3xl font-bold md:text-4xl">
+                {project.title}
+              </h2>
+              {project.subtitle && (
+                <p class="mt-2 text-lg italic">{project.subtitle}</p>
+              )}
+
+              {project.description && (
+                <p class="mt-6 text-sm leading-relaxed md:text-base">
+                  {project.description}
+                </p>
+              )}
+
+              <dl class="mt-8 space-y-3 text-sm">
+                <dt class="font-display text-lg font-bold">Crédits</dt>
+                <dd>
+                  <ul class="space-y-1">
+                    {Object.entries(project.credits).map(([role, person]) => (
+                      <li>
+                        <span class="opacity-70">{role}</span> : {person}
+                      </li>
+                    ))}
+                  </ul>
+                </dd>
+              </dl>
+
+              <dl class="mt-6 grid grid-cols-2 gap-4 text-sm">
+                <div>
+                  <dt class="font-display text-lg font-bold">
+                    Données techniques
+                  </dt>
+                  <dd class="mt-2">
+                    <ul class="space-y-1">
+                      {Object.entries(project.technical).map(([k, v]) => (
+                        <li>
+                          <span class="opacity-70">{k}</span> : {v}
+                        </li>
+                      ))}
+                    </ul>
+                  </dd>
+                </div>
+                <div>
+                  <dt class="font-display text-lg font-bold">
+                    Date de fin de production
+                  </dt>
+                  <dd class="mt-2">{project.productionDate}</dd>
+                </div>
+              </dl>
+            </div>
+          </div>
+
+          {project.videoEmbed && (
+            <div class="mt-10 aspect-video w-full overflow-hidden bg-fortin-green-dark md:mt-12">
+              {project.videoEmbed.provider === "vimeo" ? (
+                <iframe
+                  src={`https://player.vimeo.com/video/${project.videoEmbed.id}`}
+                  class="h-full w-full"
+                  title={`Lecteur vidéo : ${project.title}`}
+                  allow="autoplay; fullscreen; picture-in-picture"
+                  loading="lazy"
+                  allowfullscreen
+                />
+              ) : (
+                <iframe
+                  src={`https://www.youtube-nocookie.com/embed/${project.videoEmbed.id}`}
+                  class="h-full w-full"
+                  title={`Lecteur vidéo : ${project.title}`}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  loading="lazy"
+                  allowfullscreen
+                />
+              )}
+            </div>
+          )}
+
+          {idx < projects.length - 1 && (
+            <hr class="mt-20 border-fortin-green-dark/30 md:mt-24" />
+          )}
+        </article>
+      ))
+    }
+  </div>
+</Base>
