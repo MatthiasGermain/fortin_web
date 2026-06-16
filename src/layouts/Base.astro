@@ -14,7 +14,7 @@ interface Props {
 const {
   title,
   description = "Fortin, association audiovisuelle dédiée à la mémoire et au patrimoine.",
-  ogImage = "/logo-fortin.png",
+  ogImage = "/og-image.png",
   noindex = false,
   showFooter = true,
 } = Astro.props;
@@ -22,8 +22,45 @@ const {
 const fullTitle = title.toLowerCase().includes("fortin")
   ? title
   : `${title} · Fortin`;
-const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? Astro.url);
-const ogImageURL = new URL(ogImage, Astro.site ?? Astro.url);
+const siteBase = Astro.site ?? Astro.url;
+const canonicalURL = new URL(Astro.url.pathname, siteBase);
+const ogImageURL = new URL(ogImage, siteBase);
+
+const orgSchema = {
+  "@context": "https://schema.org",
+  "@type": "NGO",
+  name: "Fortin",
+  alternateName: "Association Fortin",
+  url: new URL("/", siteBase).href,
+  logo: new URL("/logo-fortin.png", siteBase).href,
+  image: new URL("/og-image.png", siteBase).href,
+  description:
+    "Fortin, fondée en 2021, est une association audiovisuelle qui œuvre comme un rempart contre l'oubli : elle produit des documentaires sur la mémoire et le patrimoine, en tissant un lien entre les générations.",
+  foundingDate: "2021",
+  areaServed: "Franche-Comté, France",
+  sameAs: [
+    "https://www.facebook.com/profile.php?id=100085837425073",
+    "https://www.instagram.com/fortin_projet/",
+    "https://www.youtube.com/@fortin_projet",
+    "https://www.tiktok.com/@fortin_projet",
+    "https://www.linkedin.com/in/fortin-projet-572762296",
+    "https://vimeo.com/user210486084",
+  ],
+  contactPoint: [
+    {
+      "@type": "ContactPoint",
+      contactType: "Présidence",
+      email: "thibautgarcia25300@gmail.com",
+      telephone: "+33637691768",
+    },
+    {
+      "@type": "ContactPoint",
+      contactType: "Vice-présidence",
+      email: "germain-mat25@orange.fr",
+      telephone: "+33602321720",
+    },
+  ],
+};
 ---
 
 <!doctype html>
@@ -47,12 +84,16 @@ const ogImageURL = new URL(ogImage, Astro.site ?? Astro.url);
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:image" content={ogImageURL} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Logo de l'association Fortin" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageURL} />
 
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(orgSchema)} />
   </head>
   <body class="flex min-h-screen flex-col bg-fortin-beige text-fortin-green-dark">
     <Header />
