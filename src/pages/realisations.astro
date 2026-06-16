@@ -30,7 +30,7 @@ const projects: Project[] = [
     title: "Un Portrait du Temps",
     subtitle: "Une série documentaire en 8 épisodes · 32 témoignages",
     description:
-      "Un Portrait du Temps est une série documentaire mettant en lumière les visions à la fois semblables et différentes des hommes et des femmes de l'ancienne et de la nouvelle générations. Au travers de 8 épisodes thématiques (Nos Grands-parents, l'Éducation, le Travail, les Loisirs, la Santé, la Guerre, La Société, Nos Petits-enfants), cette série explore les temps qui figurent la vie de chaque génération. Le tournage s'est achevé le 23 février 2025 ; la postproduction est en cours, pour une finalisation prévue fin 2025/début 2026.",
+      "Un Portrait du Temps est une série documentaire mettant en lumière les visions à la fois semblables et différentes des hommes et des femmes de l'ancienne et de la nouvelle générations. Au travers de 8 épisodes thématiques (Nos Grands-parents, l'Éducation, le Travail, les Loisirs, la Santé, la Guerre, La Société, Nos Petits-enfants), cette série explore les temps qui figurent la vie de chaque génération. Le tournage s'est achevé le 23 février 2025 ; la postproduction est en cours, pour une finalisation prévue au printemps 2026.",
     credits: {
       "Écrit, monté et réalisé par": "Thibaut Garcia",
       "Produit par": "Gabin Parisot",
@@ -55,7 +55,7 @@ const projects: Project[] = [
       Couleurs: "Couleurs & noir et blanc",
       Témoignages: "32 témoins",
     },
-    productionDate: "Postproduction · Finalisation fin 2025/début 2026",
+    productionDate: "Postproduction · Finalisation printemps 2026",
     videoEmbed: { provider: "vimeo", id: "882193861" },
   },
   {
@@ -290,12 +290,12 @@ const projects: Project[] = [
                 Illustrations
               </p>
 
-              <div class="mx-auto mt-4 grid items-center gap-4 md:max-w-4xl md:grid-cols-[2fr_1fr_2fr] md:gap-6">
+              <div class="mt-4 flex flex-col items-center gap-4 md:flex-row md:flex-wrap md:justify-center md:gap-6">
                 {project.gallery.map((img) => (
                   <Image
                     src={img.src}
                     alt={img.alt}
-                    class="w-full"
+                    class="w-full md:h-72 md:w-auto"
                     width={600}
                     height={600}
                     loading="lazy"

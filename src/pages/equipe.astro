@@ -13,6 +13,14 @@ import charlottePhoto from "../assets/team/charlotte.jpeg";
 import joyPhoto from "../assets/team/joy.jpg";
 import louisePhoto from "../assets/team/louise.jpeg";
 import antoinePhoto from "../assets/team/antoine.jpg";
+import gwenPhoto from "../assets/team/Tete-de-gwen.jpg";
+import pierrePhoto from "../assets/team/pierre.jpeg";
+import mariePhoto from "../assets/team/tete-de-marie.jpg";
+import ninaPhoto from "../assets/team/PhotoNinaC-1365x2048.jpg";
+import ilhanPhoto from "../assets/team/PhotoIlhanK-1536x1039.jpg";
+import manuellaPhoto from "../assets/team/Manuella.jpeg";
+import angelinaPhoto from "../assets/team/angelina.jpeg";
+import thibautPhoto from "../assets/team/Thibaut.G.png";
 
 interface Member {
   name: string;
@@ -26,6 +34,7 @@ const members: Member[] = [
     name: "Thibaut Garcia",
     role: "Président · Réalisateur",
     bio: "Crée l'association Fortin avec Gabin et d'autres de mes amis c'est avéré comme une évidence à la suite de la production du documentaire Mémoire d'appelé. Chacun de nos projet sont une occasions pour moi, comme pour l'ensemble de l'équipe, de ce retrouver et de passer du temps ensemble pour travailler sur la Mémoire. Les productions que je réalise dans le cadre de Fortin sont l'occasion pour moi de mettre mes compétence au service d'un projet commun portant sur une thématique mémorielle qui m'est très chère.",
+    photo: thibautPhoto,
   },
   {
     name: "Gabin Parisot",
@@ -43,6 +52,7 @@ const members: Member[] = [
     name: "Gwenvaël Lefaucheur",
     role: "Trésorier · Ingénieur son",
     bio: "Ce qui me motive à participer au projet, c'est l'expérience. L'expérience de découvrir encore plus le milieu audiovisuel et l'envie de développer mes compétences en tant qu'ingénieur son, entouré d'amis qui apportent chacun quelque chose de spécial au projet en général. Surtout, c'est une passion que j'ai pour l'histoire et pour les anecdotes de l'ancienne génération, et qui, ici, prend forme sous un angle différent des livres et des enseignements, un angle que j'apprécie particulièrement.",
+    photo: gwenPhoto,
   },
   {
     name: "Joy Chaleroux",
@@ -60,6 +70,7 @@ const members: Member[] = [
     name: "Pierre Clerc",
     role: "Concepteur web",
     bio: "Fortin c'est avant tout créer du lien entre nos différentes générations, et surtout un devoir de mémoire. Je pense qu'il est important de se souvenir de ce qu'ont fait nos aînés, et d'apprendre à les comprendre et les connaître. C'est surtout pour cela que j'aime beaucoup ce projet. De plus, je peux mettre à profit mes compétences pour Fortin, en réalisant son site WEB.",
+    photo: pierrePhoto,
   },
   {
     name: "Édouard Lemoine",
@@ -77,16 +88,19 @@ const members: Member[] = [
     name: "Marie Ferreux",
     role: "Responsable interview",
     bio: "S'investir dans le projet « Fortin », est un moyen pour moi d'accomplir un devoir de mémoire plus qu'important de nos jours tout en participant à une expérience stimulante intellectuellement et humainement. L'association Fortin, c'est aussi le désir de réaliser des projets aboutis, utiles et intéressants tout en apprenant à sublimer les compétences de chacun dans un but commun.",
+    photo: mariePhoto,
   },
   {
     name: "Nina Cretet",
     role: "Assistante Production",
     bio: "Ce projet traduit une véritable envie d'apprendre, de comprendre et de restituer un morceau de notre culture et de notre histoire. C'est pourquoi il m'était important d'y participer, même de loin. La dimension de partage, de transmission des valeurs le rend d'autant plus intéressant.",
+    photo: ninaPhoto,
   },
   {
     name: "Ilhan Köken",
     role: "Réalisateur making off",
     bio: "FORTIN, c'est le plaisir de travailler avec des amis, pour un devoir de mémoire important et nécessaire, et l'objectif de se professionnaliser plus encore dans l'audio visuel.",
+    photo: ilhanPhoto,
   },
   {
     name: "Charlotte Chauvel",
@@ -98,6 +112,7 @@ const members: Member[] = [
     name: "Manuella Le Bruchec",
     role: "Assistante Production",
     bio: "Le talent au service de l'histoire ! Ce serait selon moi un bon résumé de Fortin, une association où chacun joue un rôle important et peut exprimer ses savoir-faire. Je vois dans ce projet l'occasion d'être utile et de prouver que « jeunesse » n'est pas synonyme de désintérêt pour la culture et notre histoire. Nous sommes le résultat de celle de nos parents, grands-parents et arrières grand-parents, je suis alors heureuse que des personnes, de mon âge qui plus est, m'offrent la possibilité de participer à la mémoire !",
+    photo: manuellaPhoto,
   },
   {
     name: "Helena Della Posta",
@@ -140,6 +155,7 @@ const members: Member[] = [
     name: "Angelina Voynnet",
     role: "Membre",
     bio: "[Bio à compléter]",
+    photo: angelinaPhoto,
   },
 ];
 ---
@@ -166,13 +182,21 @@ const members: Member[] = [
           members.map((m) => (
             <article class="flex flex-col">
               <div class="aspect-2/3 overflow-hidden bg-fortin-green-dark">
-                <Image
-                  src={m.photo ?? matthiasPhoto}
-                  alt={`Portrait de ${m.name}`}
-                  class="h-full w-full object-cover"
-                  width={600}
-                  height={900}
-                />
+                {m.photo ? (
+                  <Image
+                    src={m.photo}
+                    alt={`Portrait de ${m.name}`}
+                    class="h-full w-full object-cover"
+                    width={600}
+                    height={900}
+                  />
+                ) : (
+                  <div class="flex h-full w-full items-center justify-center p-6">
+                    <span class="text-center font-display text-2xl font-bold tracking-wider text-fortin-beige uppercase">
+                      {m.name}
+                    </span>
+                  </div>
+                )}
               </div>
               <div class="mt-4">
                 <h2 class="font-display text-lg font-bold tracking-wider uppercase">
