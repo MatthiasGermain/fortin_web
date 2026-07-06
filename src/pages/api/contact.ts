@@ -4,7 +4,7 @@ import { Resend } from "resend";
 export const prerender = false;
 
 const RECIPIENTS = [
-  "thibautgarcia25300@gmail.com",
+  "fortin.projet@gmail.com",
 ];
 
 const FROM_ADDRESS = "Fortin <noreply@fortin-projet.fr>";
