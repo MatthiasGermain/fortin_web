@@ -4,7 +4,6 @@ import { Resend } from "resend";
 export const prerender = false;
 
 const RECIPIENTS = [
-  "germain-mat25@orange.fr",
   "thibautgarcia25300@gmail.com",
 ];
 
