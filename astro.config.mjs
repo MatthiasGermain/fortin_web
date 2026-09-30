@@ -8,7 +8,7 @@ import vercel from '@astrojs/vercel';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://fortin-projet.fr',
+  site: 'https://www.fortin-projet.fr',
   output: 'server',
   adapter: vercel(),
   integrations: [icon(), sitemap()],
